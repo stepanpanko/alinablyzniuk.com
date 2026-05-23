@@ -3,146 +3,441 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Alina Blyzniuk — Portrait & Lifestyle Photography</title>
-  <meta name="description" content="Minimal portfolio with pricing, FAQ and contact. White theme.">
+  <title>Alina Blyzniuk — Photography · Athens</title>
+  <meta name="description" content="Portrait, couples and wedding photographer based on the Athens Riviera. Available for sessions across Greece and beyond.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 </head>
 <body>
 
-<nav class="nav">
-  <div class="container nav-inner">
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-menu">
-      <span></span><span></span><span></span>
-    </button>
-
-    <div class="menu" id="primary-menu">
-      <a href="./">Home</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </div>
-</nav>
-
-<header class="hero container">
-  <div>
-    <span class="badge">Portrait & Lifestyle Photography</span>
-    <h1>Honest, cinematic portraits without the awkward.</h1>
-    <p>Based in Athens, Greece · Available worldwide · Turnaround in 7–10 days · RAW files are not provided.</p>
-    <div style="display:flex; gap:10px; flex-wrap:wrap">
-      <a class="btn" href="#pricing">See pricing</a>
-      <a class="btn" href="gallery.html">View gallery</a>
-      <a class="btn" href="#contact">Book a date</a>
-    </div>
-    <p><small style="color:#7b7b85">Studio rental, makeup & travel are billed separately if needed.</small></p>
-  </div>
-  <figure class="card"><img src="assets/images/AlinaHero.JPEG" alt="Sample portrait" loading="eager"></figure>
+<header class="site-header">
+  <div class="site-logo" id="logo">Alina Blyzniuk</div>
+  <nav class="site-nav">
+    <a href="#" class="active" data-page="work">Work</a>
+    <a href="#" data-page="services">Services</a>
+    <a href="#" data-page="about">About</a>
+    <a href="#" data-page="contact">Contact</a>
+  </nav>
 </header>
 
-<section id="pricing" class="section container pricing">
-  <h2>Pricing</h2>
-  <div class="cards">
-    <div class="card">
-      <div class="price">Portrait — €150</div>
-      <p>Up to 1 hour · 1 location · 10 edited photos.</p>
-      <ul class="clean"><li>Each extra photo: €10</li><li>Additional hour: €80</li><li>Studio rental (optional): at cost</li></ul>
+<main>
+
+  <!-- ── WORK PAGE ── -->
+  <div id="page-work" class="page active">
+
+    <div class="work-subnav">
+      <a href="#" class="active" data-tab="portraits">Portraits</a>
+      <a href="#" data-tab="couples">Couples</a>
+      <a href="#" data-tab="weddings">Weddings</a>
+      <a href="#" data-tab="events">Events</a>
+      <a href="#" data-tab="film">Film</a>
     </div>
-    <div class="card">
-      <div class="price">Couple — €240</div>
-      <p>90 minutes · 1–2 locations · 18 edited photos.</p>
-      <ul class="clean"><li>Each extra photo: €10</li><li>Rush delivery (48h): +€60</li></ul>
+
+    <!-- PORTRAITS -->
+    <div id="tab-portraits" class="gallery-tab active">
+      <div class="gallery-intro"><p>Individual portrait sessions across Athens</p></div>
+      <div class="gallery-grid col3">
+        <div class="g-item portrait" data-group="portraits" data-index="0">
+          <img src="assets/images/Dasha1.png" alt="Portrait session" loading="lazy">
+        </div>
+        <div class="g-item portrait" data-group="portraits" data-index="1">
+          <img src="assets/images/Dasha2.png" alt="Portrait session" loading="lazy">
+        </div>
+        <div class="g-item portrait" data-group="portraits" data-index="2">
+          <img src="assets/images/Eva1.png" alt="Portrait session" loading="lazy">
+        </div>
+        <div class="g-item portrait" data-group="portraits" data-index="3">
+          <img src="assets/images/Eva2.png" alt="Portrait session" loading="lazy">
+        </div>
+        <div class="g-item portrait" data-group="portraits" data-index="4">
+          <img src="assets/images/OtherGirl.png" alt="Portrait session" loading="lazy">
+        </div>
+        <div class="g-item portrait" data-group="portraits" data-index="5">
+          <img src="assets/images/OtherGirl2.png" alt="Portrait session" loading="lazy">
+        </div>
+        <div class="g-item portrait" data-group="portraits" data-index="6">
+          <img src="assets/images/YetAnotherGirl.png" alt="Portrait session" loading="lazy">
+        </div>
+      </div>
     </div>
-    <div class="card">
-      <div class="price">Editorial / Commercial — from €450</div>
-      <p>Half-day (4h) with moodboard support, light retouch, basic licensing.</p>
-      <ul class="clean"><li>Full-day (8h): €800</li><li>Advanced retouch: +€12/photo</li></ul>
+
+    <!-- COUPLES -->
+    <div id="tab-couples" class="gallery-tab">
+      <div class="gallery-intro"><p>Couples sessions on the Athens Riviera</p></div>
+      <div class="gallery-grid col3">
+        <div class="g-item portrait" data-group="couples" data-index="0">
+          <img src="assets/images/Couple1.png" alt="Couples session" loading="lazy">
+        </div>
+        <div class="g-item portrait" data-group="couples" data-index="1">
+          <img src="assets/images/Couple2.png" alt="Couples session" loading="lazy">
+        </div>
+      </div>
     </div>
-    <div class="card">
-      <strong>Rules & Info</strong>
-      <ul class="clean">
-        <li>Booking deposit: 30% to secure your date.</li>
-        <li>Turnaround: 7–10 days. RAW files are not provided.</li>
-        <li>Travel outside City: +€0.40/km or actual transport cost.</li>
-        <li>Makeup / studio: billed separately where applicable.</li>
-        <li>Reschedule once for free (48h notice).</li>
-      </ul>
+
+    <!-- WEDDINGS -->
+    <div id="tab-weddings" class="gallery-tab">
+      <div class="gallery-intro"><p>Weddings in Greece and beyond</p></div>
+      <div class="gallery-grid col3">
+        <div class="g-item portrait"></div>
+        <div class="g-item portrait"></div>
+        <div class="g-item portrait"></div>
+        <div class="g-item landscape"></div>
+        <div class="g-item portrait"></div>
+        <div class="g-item portrait"></div>
+        <div class="g-item landscape"></div>
+      </div>
+    </div>
+
+    <!-- EVENTS -->
+    <div id="tab-events" class="gallery-tab">
+      <div class="gallery-intro"><p>Brand events, private gatherings and editorial coverage</p></div>
+      <div class="gallery-grid col2">
+        <div class="g-item portrait"></div>
+        <div class="g-item portrait"></div>
+        <div class="g-item portrait"></div>
+        <div class="g-item portrait"></div>
+      </div>
+    </div>
+
+    <!-- FILM -->
+    <div id="tab-film" class="gallery-tab">
+      <div class="gallery-intro"><p>35mm analog film, available as an add-on to any session</p></div>
+      <div class="gallery-grid col3">
+        <div class="g-item portrait"></div>
+        <div class="g-item portrait"></div>
+        <div class="g-item portrait"></div>
+        <div class="g-item landscape"></div>
+        <div class="g-item portrait"></div>
+        <div class="g-item portrait"></div>
+        <div class="g-item landscape"></div>
+      </div>
+    </div>
+
+  </div>
+  <!-- ── END WORK PAGE ── -->
+
+  <!-- ── SERVICES PAGE ── -->
+  <div id="page-services" class="page">
+    <div class="services-section">
+
+      <div class="services-header">
+        <p class="services-label">What I offer</p>
+        <h2 class="services-title">Sessions shaped<br>around you</h2>
+      </div>
+
+      <div class="service-block">
+        <p class="service-name">01 / Portraits</p>
+        <h3 class="service-desc-title">Individual portrait sessions</h3>
+        <p class="service-desc">A relaxed, guided session built around natural light and your own character. Whether you are visiting Athens or based here, I create space for you to feel at ease and be yourself. Sessions take place across the city and the Riviera, at timing chosen for the best light.</p>
+        <div class="service-includes">
+          <span class="service-tag">1 or 2 hours</span>
+          <span class="service-tag">40 plus edited images</span>
+          <span class="service-tag">Private gallery</span>
+          <span class="service-tag">Film available</span>
+        </div>
+      </div>
+
+      <div class="service-block">
+        <p class="service-name">02 / Couples</p>
+        <h3 class="service-desc-title">Couples and engagement sessions</h3>
+        <p class="service-desc">Candid, unscripted, and built around the two of you. Whether you are celebrating an anniversary, newly engaged, or simply in Athens together, I photograph what actually happens between people. No rigid posing. Just your story, told honestly.</p>
+        <div class="service-includes">
+          <span class="service-tag">1 or 2 hours</span>
+          <span class="service-tag">40 plus edited images</span>
+          <span class="service-tag">2 location changes included</span>
+          <span class="service-tag">Film available</span>
+        </div>
+      </div>
+
+      <div class="service-block">
+        <p class="service-name">03 / Weddings</p>
+        <h3 class="service-desc-title">Destination weddings in Greece</h3>
+        <p class="service-desc">I treat your wedding as a cinematic story, focused on natural light and the moments that cannot be staged. Based on the Athens Riviera and available across the Greek islands and mainland. Half day and full day collections, digital and 35mm film options. Travel outside Athens arranged separately.</p>
+        <div class="service-includes">
+          <span class="service-tag">Half day or full day</span>
+          <span class="service-tag">200 to 450 images</span>
+          <span class="service-tag">Sneak peek within 72 hours</span>
+          <span class="service-tag">Film in top collection</span>
+        </div>
+      </div>
+
+      <div class="service-block">
+        <p class="service-name">04 / Events</p>
+        <h3 class="service-desc-title">Brand events and private occasions</h3>
+        <p class="service-desc">Candid documentary coverage for brand launches, restaurant evenings, private parties and editorial events. I work quietly and efficiently, capturing atmosphere and genuine moments without interrupting the flow of your event.</p>
+        <div class="service-includes">
+          <span class="service-tag">Flexible duration</span>
+          <span class="service-tag">High resolution delivery</span>
+          <span class="service-tag">Quick turnaround available</span>
+        </div>
+      </div>
+
+      <div class="service-block">
+        <p class="service-name">05 / Film</p>
+        <h3 class="service-desc-title">35mm analog film</h3>
+        <p class="service-desc">Film is available as an add-on to any session or wedding collection. I shoot on 35mm, developed and scanned to high resolution. Each roll yields 10 to 15 scanned frames delivered alongside your digital gallery.</p>
+        <div class="service-includes">
+          <span class="service-tag">10 to 15 frames per roll</span>
+          <span class="service-tag">Add-on to any session</span>
+          <span class="service-tag">Delivered with digital gallery</span>
+        </div>
+      </div>
+
+      <div class="services-footer">
+        <p>Not sure what you need? I am open to creative projects, collaborations and ideas that do not fit neatly into a category. Tell me what you have in mind.</p>
+        <a href="#" class="btn-inquiry" id="btn-to-contact">Get in touch</a>
+      </div>
+
     </div>
   </div>
-</section>
+  <!-- ── END SERVICES PAGE ── -->
 
-<section id="about" class="section container about">
-  <h2>About</h2>
-  <div class="grid">
-    <div class="card">
-      <p>Hi, I’m <strong>Alina Blyzniuk</strong>. I shoot natural, cinematic portraits with a focus on story and mood.</p>
-      <p>Available in Athens, Greece · English/Greek/Ukrainian · Worldwide on request.</p>
-    </div>
-    <div class="card">
-      <strong>Contact</strong>
-      <p>Email: <a href="mailto:alinaa6042@gmail.com">alinaa6042@gmail.com</a><br>
-      Instagram: <a href="https://www.instagram.com/alinablyzniuk.ph/" target="_blank" rel="noreferrer">@alinablyzniuk.ph</a></p>
-      <p><small style="color:#7b7b85">Prefer forms? Use the contact form below ↴</small></p>
+  <!-- ── ABOUT PAGE ── -->
+  <div id="page-about" class="page">
+    <div class="about-section">
+
+      <div class="about-img">
+        <img src="assets/images/AlinaHero.JPEG" alt="Alina Blyzniuk" loading="lazy">
+      </div>
+
+      <div class="about-text">
+        <h2>Quietly present.<br>Always honest.</h2>
+        <p>I am Alina, a photographer based on the Athens Riviera. I work in a candid, cinematic way, shooting both digital and 35mm film, shaped around natural light and the particular character of wherever we are.</p>
+        <p>I believe the best photographs happen when people forget there is a camera. My approach is calm and unhurried. People tell me they found it easy to be themselves. That is the part I care about most.</p>
+        <p>Available for individual sessions, couples, weddings, and events across Athens, the Greek islands, and beyond.</p>
+        <div class="about-facts">
+          <span class="about-fact">Athens Riviera, Greece</span>
+          <span class="about-fact">Digital and 35mm film</span>
+          <span class="about-fact">Available for travel</span>
+          <span class="about-fact">English speaking</span>
+        </div>
+      </div>
+
     </div>
   </div>
-</section>
+  <!-- ── END ABOUT PAGE ── -->
 
-<section id="contact" class="section container">
-  <h2>Contact form</h2>
-  <form class="card" action="https://api.web3forms.com/submit" method="POST">
-    <input type="hidden" name="access_key" value="d3941634-ea85-41c1-a61d-ca7e1eaca1e5">
-    <input class="input" type="text" name="name" placeholder="Your name" required style="margin-bottom:10px">
-    <input class="input" type="email" name="email" placeholder="Email" required style="margin-bottom:10px">
-    <input class="input" type="text" name="subject" placeholder="Subject" style="margin-bottom:10px">
-    <textarea class="input" name="message" placeholder="Tell me about the shoot…" required></textarea>
-    <input type="checkbox" name="botcheck" style="display:none">
-    <input type="hidden" name="redirect" value="thanks.html">
-    <div style="display:flex; gap:10px; margin-top:12px">
-      <button class="btn" type="submit">Send</button>
-      <a class="btn" href="mailto:alinaa6042@gmail.com">Email instead</a>
+  <!-- ── CONTACT PAGE ── -->
+  <div id="page-contact" class="page">
+    <div class="contact-section">
+
+      <p class="contact-label">Contact</p>
+      <h2 class="contact-title">Let's make something<br>beautiful together</h2>
+      <div class="divider"></div>
+      <p class="contact-subtitle">Reach out using the form below. I typically respond within a few hours.</p>
+
+      <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="d3941634-ea85-41c1-a61d-ca7e1eaca1e5">
+        <input type="checkbox" name="botcheck" style="display:none">
+        <input type="hidden" name="redirect" value="thanks.html">
+
+        <div class="form-field">
+          <label class="form-label" for="f-name">Your name</label>
+          <input type="text" id="f-name" name="name" placeholder="Full name" required>
+        </div>
+
+        <div class="form-field">
+          <label class="form-label" for="f-email">Your email</label>
+          <input type="email" id="f-email" name="email" placeholder="email@example.com" required>
+        </div>
+
+        <div class="form-field">
+          <label class="form-label" for="f-session">Session type</label>
+          <div class="select-wrap">
+            <select id="f-session" name="session_type" class="placeholder-shown">
+              <option value="" disabled selected>Select a session type</option>
+              <option value="Portraits">Portraits</option>
+              <option value="Couples">Couples</option>
+              <option value="Weddings">Weddings</option>
+              <option value="Events">Events</option>
+              <option value="Film add-on">Film add-on</option>
+              <option value="Something else">Something else</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label class="form-label" for="f-date">Preferred date</label>
+          <input type="date" id="f-date" name="preferred_date">
+        </div>
+
+        <div class="form-field">
+          <label class="form-label" for="f-message">Your vision</label>
+          <textarea id="f-message" name="message" placeholder="Tell me about your ideas, questions or anything else you want me to know" required></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">Send</button>
+      </form>
+
     </div>
-    <p><small style="color:#7b7b85">By sending, you agree to be contacted about your inquiry. No spam—ever.</small></p>
-  </form>
-</section>
+  </div>
+  <!-- ── END CONTACT PAGE ── -->
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="https://www.instagram.com/alinablyzniuk.ph/" target="_blank" rel="noreferrer">Instagram</a>
+    <a href="mailto:alinaa6042@gmail.com">alinaa6042@gmail.com</a>
+  </div>
+  <p class="footer-copy">2026 Alina Blyzniuk Photography · Athens, Greece</p>
+</footer>
+
+<!-- ── LIGHTBOX ── -->
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <div class="lightbox-bg" id="lightbox-bg"></div>
+  <button class="lightbox-arrow prev" id="lb-prev" aria-label="Previous image">&#8592;</button>
+  <button class="lightbox-close" id="lb-close" aria-label="Close">&#215;</button>
+  <div class="lightbox-inner">
+    <img id="lightbox-img" class="lightbox-img" src="" alt="Gallery image">
+  </div>
+  <button class="lightbox-arrow next" id="lb-next" aria-label="Next image">&#8594;</button>
+</div>
 
 <script>
-  // Hamburger toggle
-  const burger = document.getElementById('hamburger');
-  const menu   = document.getElementById('primary-menu');
+  // ── PAGE NAVIGATION ──
+  const navLinks = document.querySelectorAll('.site-nav a');
 
-  burger.addEventListener('click', () => {
-    const open = menu.classList.toggle('open');
-    burger.classList.toggle('active', open);
-    burger.setAttribute('aria-expanded', String(open));
-  });
+  function showPage(pageId) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + pageId).classList.add('active');
+    navLinks.forEach(a => a.classList.remove('active'));
+    const target = document.querySelector('[data-page="' + pageId + '"]');
+    if (target) target.classList.add('active');
+    window.scrollTo(0, 0);
+  }
 
-  // Close after clicking a link (mobile)
-  menu.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      if (menu.classList.contains('open')) {
-        menu.classList.remove('open');
-        burger.classList.remove('active');
-        burger.setAttribute('aria-expanded', 'false');
-      }
+  navLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      showPage(link.dataset.page);
     });
   });
 
-  // Close on ESC
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && menu.classList.contains('open')) {
-      menu.classList.remove('open');
-      burger.classList.remove('active');
-      burger.setAttribute('aria-expanded', 'false');
-    }
+  document.getElementById('logo').addEventListener('click', () => showPage('work'));
+
+  document.getElementById('btn-to-contact').addEventListener('click', e => {
+    e.preventDefault();
+    showPage('contact');
   });
 
-  window.addEventListener("pageshow", function(event) {
-    const form = document.querySelector("form");
-    if (event.persisted || (performance && performance.getEntriesByType("navigation")[0].type === "back_forward")) {
-      form.reset();
-    }
+  // ── ORIENTATION DETECTION ──
+  function detectOrientations(tabId) {
+    const tab = document.getElementById(tabId);
+    if (!tab) return;
+    tab.querySelectorAll('.g-item[data-group]').forEach(item => {
+      const img = item.querySelector('img');
+      if (!img) return;
+      const apply = () => {
+        item.classList.remove('portrait', 'landscape', 'square');
+        if (img.naturalWidth > img.naturalHeight) {
+          item.classList.add('landscape');
+        } else if (img.naturalHeight > img.naturalWidth) {
+          item.classList.add('portrait');
+        } else {
+          item.classList.add('square');
+        }
+      };
+      if (img.complete && img.naturalWidth > 0) {
+        apply();
+      } else {
+        img.addEventListener('load', apply);
+      }
+    });
+  }
+
+  // ── WORK SUB-NAVIGATION ──
+  const subNavLinks = document.querySelectorAll('.work-subnav a');
+
+  subNavLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const tab = link.dataset.tab;
+      document.querySelectorAll('.gallery-tab').forEach(t => t.classList.remove('active'));
+      document.getElementById('tab-' + tab).classList.add('active');
+      subNavLinks.forEach(a => a.classList.remove('active'));
+      link.classList.add('active');
+      detectOrientations('tab-' + tab);
+    });
+  });
+
+  detectOrientations('tab-portraits');
+
+  // ── LIGHTBOX ──
+  const lightboxData = {
+    portraits: [
+      'assets/images/Dasha1.png',
+      'assets/images/Dasha2.png',
+      'assets/images/Eva1.png',
+      'assets/images/Eva2.png',
+      'assets/images/OtherGirl.png',
+      'assets/images/OtherGirl2.png',
+      'assets/images/YetAnotherGirl.png',
+    ],
+    couples: [
+      'assets/images/Couple1.png',
+      'assets/images/Couple2.png',
+    ],
+  };
+
+  let lbGroup = null;
+  let lbIndex = 0;
+
+  const lightbox    = document.getElementById('lightbox');
+  const lbImg       = document.getElementById('lightbox-img');
+  const lbBg        = document.getElementById('lightbox-bg');
+  const lbClose     = document.getElementById('lb-close');
+  const lbPrev      = document.getElementById('lb-prev');
+  const lbNext      = document.getElementById('lb-next');
+
+  function openLightbox(group, index) {
+    lbGroup = group;
+    lbIndex = index;
+    lbImg.src = lightboxData[group][index];
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function lbNavigate(dir) {
+    const imgs = lightboxData[lbGroup];
+    lbIndex = (lbIndex + dir + imgs.length) % imgs.length;
+    lbImg.src = imgs[lbIndex];
+  }
+
+  lbBg.addEventListener('click', closeLightbox);
+  lbClose.addEventListener('click', closeLightbox);
+  lbPrev.addEventListener('click', () => lbNavigate(-1));
+  lbNext.addEventListener('click', () => lbNavigate(1));
+
+  document.addEventListener('click', e => {
+    const item = e.target.closest('.g-item[data-group]');
+    if (item) openLightbox(item.dataset.group, parseInt(item.dataset.index, 10));
+  });
+
+  document.addEventListener('keydown', e => {
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'Escape')      closeLightbox();
+    if (e.key === 'ArrowLeft')   lbNavigate(-1);
+    if (e.key === 'ArrowRight')  lbNavigate(1);
+  });
+
+  // ── SELECT PLACEHOLDER COLOR ──
+  document.getElementById('f-session').addEventListener('change', function () {
+    this.classList.remove('placeholder-shown');
+  });
+
+  // ── FORM RESET ON BACK/FORWARD ──
+  window.addEventListener('pageshow', e => {
+    if (e.persisted) document.querySelector('.contact-form').reset();
   });
 </script>
+
 </body>
 </html>
