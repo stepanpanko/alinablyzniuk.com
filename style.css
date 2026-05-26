@@ -631,15 +631,38 @@ main {
 
 .form-container {
   position: relative;
-  min-height: 280px;
+  min-height: 340px;
+  max-width: 380px;
+  margin: 0 auto;
 }
 
 .form-fields {
-  transition: opacity 0.4s;
+  transition: opacity 0.4s ease;
+  text-align: left;
 }
 
 .form-fields.fading {
   opacity: 0;
+  pointer-events: none;
+}
+
+.field-error {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: #c0392b;
+  margin-top: 5px;
+  display: none;
+  text-align: left;
+}
+
+.field-error.visible {
+  display: block;
+}
+
+.input-error {
+  border-bottom: 1px solid #c0392b !important;
 }
 
 .success-state {
@@ -653,7 +676,7 @@ main {
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition: opacity 0.4s;
+  transition: opacity 0.4s ease;
   pointer-events: none;
 }
 
@@ -662,20 +685,21 @@ main {
   pointer-events: all;
 }
 
-.success-divider {
+.success-line {
   width: 32px;
   height: 0.5px;
   background: #d8d4cf;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
 .success-title {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
   font-weight: 300;
-  font-size: 28px;
+  font-size: 30px;
   color: #1a1a1a;
   margin-bottom: 12px;
+  text-align: center;
 }
 
 .success-subtitle {
@@ -683,17 +707,8 @@ main {
   font-weight: 300;
   font-size: 13px;
   color: #9a9590;
-  letter-spacing: 0.05em;
-}
-
-.field-error {
-  font-family: 'Jost', sans-serif;
-  font-weight: 300;
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  color: #c0392b;
-  margin-top: 6px;
-  display: block;
+  letter-spacing: 0.06em;
+  text-align: center;
 }
 
 .form-network-error {
@@ -703,6 +718,11 @@ main {
   color: #c0392b;
   text-align: center;
   margin-top: 12px;
+  display: none;
+}
+
+.form-network-error.visible {
+  display: block;
 }
 
 /* ── FOOTER ── */
