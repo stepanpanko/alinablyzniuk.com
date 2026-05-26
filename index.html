@@ -487,10 +487,14 @@
       <div class="divider"></div>
       <p class="contact-subtitle">Reach out using the form below. I typically respond within a few hours.</p>
 
-      <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+      <div id="form-success" style="display:none" class="form-success-msg">
+        <p class="form-success-title">Thank you.</p>
+        <p class="form-success-sub">I will be in touch soon.</p>
+      </div>
+
+      <form class="contact-form" id="contact-form">
         <input type="hidden" name="access_key" value="d3941634-ea85-41c1-a61d-ca7e1eaca1e5">
         <input type="checkbox" name="botcheck" style="display:none">
-        <input type="hidden" name="redirect" value="thanks.html">
 
         <div class="form-field">
           <label class="form-label" for="f-name">Your name</label>
@@ -803,9 +807,44 @@
     this.classList.remove('placeholder-shown');
   });
 
-  // ── FORM RESET ON BACK/FORWARD ──
+  // ── DATE PICKER: today onwards only ──
+  document.getElementById('f-date').min = new Date().toISOString().split('T')[0];
+
+  // ── CONTACT FORM: submit via fetch, show inline success ──
+  const contactForm = document.getElementById('contact-form');
+  const formSuccess = document.getElementById('form-success');
+
+  contactForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    const btn = contactForm.querySelector('.btn-submit');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: new FormData(contactForm)
+      });
+      if (res.ok) {
+        contactForm.style.display = 'none';
+        formSuccess.style.display = 'block';
+      } else {
+        throw new Error('server error');
+      }
+    } catch {
+      btn.disabled = false;
+      btn.textContent = 'Send';
+      alert('Something went wrong. Please try again or email alinaa6042@gmail.com directly.');
+    }
+  });
+
+  // Reset form if user navigates back
   window.addEventListener('pageshow', e => {
-    if (e.persisted) document.querySelector('.contact-form').reset();
+    if (e.persisted) {
+      contactForm.reset();
+      contactForm.style.display = '';
+      formSuccess.style.display = 'none';
+    }
   });
 </script>
 
