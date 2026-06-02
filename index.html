@@ -10,6 +10,52 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23ffffff'/><text x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='14' font-weight='400' fill='%231a1a1a' letter-spacing='1'>AB</text></svg>">
+
+  <!-- ═══════════════════════════════════════════════════════
+       TRACKING CONFIG — replace placeholder IDs before launch
+       ═══════════════════════════════════════════════════════ -->
+  <script>
+    var AB_PIXEL_ID = "PIXEL_ID_HERE";   // ← paste your Meta Pixel ID
+    var AB_GA4_ID   = "G-XXXXXXXXXX";    // ← paste your GA4 Measurement ID
+
+    /* Fire tracking if user already consented (previous visit) */
+    (function () {
+      if (localStorage.getItem('ab_consent') !== 'y') return;
+      _abLoadPixel();
+      _abLoadGA4();
+    }());
+
+    function _abLoadPixel() {
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){
+      n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];
+      t=b.createElement(e);t.async=!0;t.src=v;
+      s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', AB_PIXEL_ID);
+      fbq('track', 'PageView');
+    }
+
+    function _abLoadGA4() {
+      if (window._abGA4Loaded) return;
+      window._abGA4Loaded = true;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + AB_GA4_ID;
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){ dataLayer.push(arguments); };
+      gtag('js', new Date());
+      gtag('config', AB_GA4_ID);
+    }
+
+    /* Central event helper — safe to call even before consent */
+    function _abTrack(pixelEvent, ga4Event, ga4Params) {
+      if (window.fbq) fbq('track', pixelEvent);
+      if (window.gtag) gtag('event', ga4Event, ga4Params || {});
+    }
+  </script>
 </head>
 <body>
 
@@ -934,7 +980,78 @@
       document.getElementById('contactSuccess').classList.remove('visible');
     }
   });
+  // ── COOKIE CONSENT ──────────────────────────────────────────────────────────
+  (function () {
+    var banner = document.getElementById('cookie-banner');
+    var stored = localStorage.getItem('ab_consent');
+
+    if (stored === 'y') {
+      /* already accepted — scripts loaded in <head> */
+    } else if (stored === null) {
+      /* first visit — show banner after short delay */
+      setTimeout(function () { banner.classList.add('visible'); }, 900);
+    }
+    /* stored === 'n' → declined, banner stays hidden, no scripts load */
+
+    document.getElementById('cookie-accept').addEventListener('click', function () {
+      localStorage.setItem('ab_consent', 'y');
+      banner.classList.remove('visible');
+      _abLoadPixel();
+      _abLoadGA4();
+    });
+
+    document.getElementById('cookie-decline').addEventListener('click', function () {
+      localStorage.setItem('ab_consent', 'n');
+      banner.classList.remove('visible');
+    });
+  }());
+
+  // ── ANALYTICS EVENT LISTENERS ────────────────────────────────────────────────
+  // Selectors attached (for verification):
+  //   Email      : a[href^="mailto:"]          → Meta "Contact" / GA4 "contact_email"
+  //   CTA        : .btn-inquiry, #btn-to-contact → Meta "Lead"    / GA4 "cta_click"
+  //   Form submit: #cf-submit (inside submit handler below via _abTrack)
+  document.addEventListener('click', function (e) {
+    // Email link
+    if (e.target.closest('a[href^="mailto:"]')) {
+      _abTrack('Contact', 'contact_email', { method: 'email' });
+    }
+    // "Get in touch" / any .btn-inquiry CTA
+    var cta = e.target.closest('.btn-inquiry');
+    if (cta) {
+      _abTrack('Lead', 'cta_click', { label: cta.textContent.trim() });
+    }
+  });
+
+  // Fire Lead when contact form submits successfully
+  // (hooked into the success branch of the existing fetch handler via MutationObserver)
+  (function () {
+    var success = document.getElementById('contactSuccess');
+    if (!success) return;
+    var observer = new MutationObserver(function (mutations) {
+      mutations.forEach(function (m) {
+        if (m.type === 'attributes' && success.classList.contains('visible')) {
+          _abTrack('Lead', 'form_submit', { form: 'contact' });
+        }
+      });
+    });
+    observer.observe(success, { attributes: true, attributeFilter: ['class'] });
+  }());
+
 </script>
+
+
+<!-- ── COOKIE CONSENT BANNER ── -->
+<div id="cookie-banner" role="dialog" aria-label="Cookie preferences">
+  <p class="cookie-text">
+    We use cookies to understand how visitors use this site (Google Analytics &amp; Meta Pixel).
+    No data is collected until you accept.
+  </p>
+  <div class="cookie-actions">
+    <button id="cookie-accept" class="cookie-btn-accept">Accept</button>
+    <button id="cookie-decline" class="cookie-btn-decline">Decline</button>
+  </div>
+</div>
 
 </body>
 </html>
