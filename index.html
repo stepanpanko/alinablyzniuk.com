@@ -65,10 +65,11 @@
       gtag('config', AB_GA4_ID);
     }
 
-    /* Central event helper — safe to call even before consent */
+    /* Central event helper — safe to call even before consent.
+       Pass null for pixelEvent or ga4Event to skip that platform. */
     function _abTrack(pixelEvent, ga4Event, ga4Params) {
-      if (window.fbq) fbq('track', pixelEvent);
-      if (window.gtag) gtag('event', ga4Event, ga4Params || {});
+      if (pixelEvent && window.fbq)  fbq('track', pixelEvent, ga4Params || {});
+      if (ga4Event && window.gtag)   gtag('event', ga4Event, ga4Params || {});
     }
   </script>
 </head>
@@ -651,6 +652,8 @@
     const target = document.querySelector('[data-page="' + pageId + '"]');
     if (target) target.classList.add('active');
     window.scrollTo(0, 0);
+    // Track in-app section navigation (GA4 only — SPA has no real page reloads)
+    _abTrack(null, 'section_view', { section_name: pageId });
   }
 
   navLinks.forEach(link => {
@@ -717,6 +720,8 @@
       link.classList.add('active');
       eagerLoadTab('tab-' + tab);
       detectOrientations('tab-' + tab);
+      // Track which gallery was opened (Meta ViewContent + GA4 gallery_view)
+      _abTrack('ViewContent', 'gallery_view', { gallery_name: tab });
     });
   });
 
